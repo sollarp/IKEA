@@ -2,3 +2,5 @@ URL : https://www.ikea.com/gb/en/offers/limited-time-offers/?filters=f-online-se
 install:
 pip pandas
 pip install xlwt openpyxl xlsxwriter xlrd
+
+and more
