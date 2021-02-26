@@ -4,14 +4,16 @@ from pandas import ExcelFile
 
 
 dt = pd.read_excel('ESheet.xls')
+xl = pd.ExcelFile('ESheet.xls')
 dr = pd.DataFrame(data=dt).T ## organize data 
 dt.dropna(inplace = True)
 sub ='Test'
 start = 0
 dt["Indexes"]= dt["Item_name"].str.find(sub, start) 
 f = dt[dt['Desc'].str.contains("Waste")][['Desc']]
-print(f.T)
-
+print(f)
+lis = f.values.tolist() # convert dataobject to list
+print(lis)
 #print(dt)
 #print(dt['Item_name'])
 #print(dr)
