@@ -11,9 +11,8 @@ sub ='Test'
 start = 0
 dt["Indexes"]= dt["Item_name"].str.find(sub, start) 
 f = dt[dt['Desc'].str.contains("Waste")][['Desc']]
-print(f)
 lis = f.values.tolist() # convert dataobject to list
-print(lis)
+print(lis[0][0])
 #print(dt)
 #print(dt['Item_name'])
 #print(dr)
