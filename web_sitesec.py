@@ -31,14 +31,22 @@ class OffersSite():
         self.get_items(items_all)
 
     def get_items(self, item_all):
-        item_name = []
-        valid_until = [] 
-        price = []
+        self.item_name = []
+        self.valid_until = [] 
+        self.price = []
 
-        item_name = item_all[1::4] # All items names
-        valid_until = item_all[0::4] # Price valid until
-        price = item_all[3::4] # Items price
+        self.item_name = item_all[1::4] # All items names
+        self.valid_until = item_all[0::4] # Price valid until
+        self.price = item_all[3::4] # Items price
 
-run = OffersSite()
-run.list_elements()
+    def received_data(self):
+        self.list_elements()
+        item_name = self.item_name
+        valid_until = self.valid_until
+        price = self.price
+        return item_name, valid_until, price
+
+
+#run = OffersSite()
+#run.received_data()
 
