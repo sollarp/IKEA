@@ -27,7 +27,6 @@ class OffersSite():
         for i in get_items:    
 
             items_all.append(i.text)
-        #print(items_all)
         self.get_items(items_all)
 
     def get_items(self, item_all):
