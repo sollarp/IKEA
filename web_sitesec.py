@@ -23,7 +23,6 @@ class OffersSite():
 
     def search_items(self, get_items):
         items_all=[]
-
         for i in get_items:    
 
             items_all.append(i.text)
@@ -38,12 +37,14 @@ class OffersSite():
         self.valid_until = item_all[0::4] # Price valid until
         self.price = item_all[3::4] # Items price
 
-    def received_data(self):
+    def data_container(self):
         self.list_elements()
         item_name = self.item_name
         valid_until = self.valid_until
         price = self.price
-        return item_name, valid_until, price
+        desc = ['1']
+        modi = ['8']
+        return item_name, valid_until, price, desc, modi
 
 
 #run = OffersSite()

@@ -6,19 +6,35 @@ import openpyxl
 from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
 from web_sitesec import OffersSite
+#
+#offerssites = OffersSite()
+#data = offerssites.data_container()
+#data1 = data[0]
+#data2 = data[1]
+#data3 = data[2]
+list = [1, 3, 5, 7, 9, 3, 5, 7, 9, 3, 5, 7, 9, 3, 5, 7, 9, 3, 5, 7, 9, 3, 5, 7, 9, 3, 5, 7]
+  
+# Using enumerate() 
+var = []
+s = 0
+e = 4
+g = len(list)
+for var in range(int(g/4)):
+    var = list[s:e]
+    e += 4
+    s += 4
+   
+    print(var)
+   
 
-offerssites = OffersSite()
-data = offerssites.received_data()
-data1 = data[0]
-data2 = data[1]
-data3 = data[2]
+#df = pd.DataFrame(data={'Itemname': [data1], 'Desc':[data2], 'Price':[data3], 'ValidUntil':[ ], 'Modified':[ ]})              
+#df1 = pd.DataFrame([['2', '3', '4', '5', '3'],['8', '5', '9', '4', '3']],
+#                   columns=['Itemname',	'Desc',	'Price', 'ValidUntil', 'Modified'])
 
-print(data3)
 
-df = pd.DataFrame(data={'Itemname': [data1], 'Desc':[data2], 'Price':[data3], 'ValidUntil':[ ], 'Modified':[ ]})              
 
-with pd.ExcelWriter("ESheet_second.xlsx", engine='openpyxl', mode='w') as writer: 
-    df.to_excel(writer)
+#with pd.ExcelWriter("ESheet_second.xlsx", engine='openpyxl', mode='w') as writer: 
+#    df1.to_excel(writer, sheet_name='Sheet1')
 
 
 # Data can be assigned directly to cells
