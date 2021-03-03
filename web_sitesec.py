@@ -29,6 +29,7 @@ class OffersSite():
         self.get_items(items_all)
 
     def get_items(self, item_all):
+        self.pass_over = item_all
         self.item_name = []
         self.valid_until = [] 
         self.price = []
@@ -39,12 +40,13 @@ class OffersSite():
 
     def data_container(self):
         self.list_elements()
-        item_name = self.item_name
-        valid_until = self.valid_until
-        price = self.price
-        desc = ['1']
-        modi = ['8']
-        return item_name, valid_until, price, desc, modi
+        pass_over = self.pass_over
+        #item_name = self.item_name
+        #valid_until = self.valid_until
+        #price = self.price
+        #desc = ['1']
+        #modi = ['8']
+        return pass_over
 
 
 #run = OffersSite()
