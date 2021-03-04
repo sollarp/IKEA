@@ -9,30 +9,22 @@ from web_sitesec import OffersSite
 #
 offerssites = OffersSite()
 data = offerssites.data_container()
-#data1 = data[0]
-#data2 = data[1]
-#data3 = data[2]
+
 list = data
-  
-# Using enumerate() 
-var = []
+cont = []  
 s = 0
-e = 4
+e = 3
 g = len(list)
 for var in range(int(g/4)):
-    var = list[s:e]
-    e += 4
-    s += 4
-   
-    print(var)
-   
+    lis = list[s:e]
+    e += 3
+    s += 3
+    cont.append(lis)
 
-#df = pd.DataFrame(data={'Itemname': [data1], 'Desc':[data2], 'Price':[data3], 'ValidUntil':[ ], 'Modified':[ ]})              
-df1 = pd.DataFrame([data],
-                   columns=['Itemname',	'Desc',	'Price', 'ValidUntil', 'Modified'])
-
-
-
+df1 = pd.DataFrame(cont,columns=['ValidUntil', 'Item_name', 'Price'])
+##
+##
+##
 with pd.ExcelWriter("ESheet_second.xlsx", engine='openpyxl', mode='w') as writer: 
     df1.to_excel(writer, sheet_name='Sheet1')
 

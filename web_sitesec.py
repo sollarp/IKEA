@@ -30,28 +30,28 @@ class OffersSite():
 
     def get_items(self, item_all):
         self.pass_over = item_all
-        self.item_name = []
-        self.valid_until = [] 
-        self.price = []
-        self.item_name = item_all[1::4] # All items names
-        self.valid_until = item_all[0::4] # Price valid until
-        self.price = item_all[3::4] # Items price
+        item_name = []
+        valid_until = [] 
+        price = []
+        item_name = item_all[1::4] # All items names   
+        valid_until = item_all[0::4] # Price valid until
+        price = item_all[3::4] # Items price
         k = 0
         item_all_s = []
-        for i in range(len(self.item_name)):
-            a = self.valid_until[k]
-            b = self.item_name[k]
-            c = self.price[k]
+        for i in range(len(item_name)):
+            a = valid_until[k]
+            b = item_name[k]
+            c = price[k]
             k += 1
             item_all_s.append(a)
             item_all_s.append(b)
             item_all_s.append(c)
-        print(item_all_s)   
+        self.item_all_s = item_all_s
         
 
     def data_container(self):
         self.list_elements()
-        pass_over = self.pass_over
+        pass_over = self.item_all_s
         #item_name = self.item_name
         #valid_until = self.valid_until
         #price = self.price
@@ -60,6 +60,6 @@ class OffersSite():
         return pass_over
 
 
-run = OffersSite()
-run.list_elements()
+#run = OffersSite()
+#run.list_elements()
 
