@@ -52,11 +52,6 @@ class OffersSite():
     def data_container(self):
         self.list_elements()
         pass_over = self.item_all_s
-        #item_name = self.item_name
-        #valid_until = self.valid_until
-        #price = self.price
-        #desc = ['1']
-        #modi = ['8']
         return pass_over
 
 

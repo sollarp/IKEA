@@ -6,29 +6,38 @@ import openpyxl
 from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
 from web_sitesec import OffersSite
-#
-offerssites = OffersSite()
-data = offerssites.data_container()
-
-list = data
-cont = []  
-s = 0
-e = 3
-g = len(list)
-for var in range(int(g/4)):
-    lis = list[s:e]
-    e += 3
-    s += 3
-    cont.append(lis)
-
-df1 = pd.DataFrame(cont,columns=['ValidUntil', 'Item_name', 'Price'])
-##
-##
-##
-with pd.ExcelWriter("ESheet_second.xlsx", engine='openpyxl', mode='w') as writer: 
-    df1.to_excel(writer, sheet_name='Sheet1')
 
 
+
+def collet_data():
+    offerssites = OffersSite()
+    data = offerssites.data_container()
+
+    list = data
+    cont = []  
+    s = 0
+    e = 3
+    g = len(list)
+    for var in range(int(g/4)):
+        lis = list[s:e]
+        e += 3
+        s += 3
+        cont.append(lis)
+
+    df1 = pd.DataFrame(cont,columns=['ValidUntil', 'Item_name', 'Price'])
+
+    with pd.ExcelWriter("ESheet_second.xlsx", engine='openpyxl', mode='w') as writer: 
+        df1.to_excel(writer, sheet_name='Sheet1')
+
+def search_in(input):
+    dt = pd.read_excel('ESheet_second.xlsx')
+    #dt["Indexes"]= dt["Item_name"].str.find(sub, start) 
+    f = dt[dt['Item_name'].str.contains(input)][['Item_name']]
+    lis = f.values.tolist() # convert dataobject to list
+    print(lis[0][0]) 
+
+input = 'Waste'
+search_in(input)
 # Data can be assigned directly to cells
 #ws['A5'] = 42
 
