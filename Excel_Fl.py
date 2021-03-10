@@ -31,10 +31,11 @@ def collet_data():
 
 def search_in(input):
     dt = pd.read_excel('ESheet_second.xlsx')
-    #dt["Indexes"]= dt["Item_name"].str.find(sub, start) 
-    f = dt[dt['Item_name'].str.contains(input)][['Item_name']]
-    lis = f.values.tolist() # convert dataobject to list
-    print(lis[0][0]) 
+    f = dt[dt['Item_name'].str.contains(input)][['Item_name', 'ValidUntil', 'Price']]
+
+    print(f)
+    #lis = f.values.tolist() # convert dataobject to list
+    return f
 
 input = 'Waste'
 search_in(input)
