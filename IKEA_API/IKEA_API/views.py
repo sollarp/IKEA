@@ -10,7 +10,6 @@ def firstFunction(request):
     try:
         req = request.query_params['id']
         results = search_in(req)
-        print(results)
         item_name = results[0]
         valid_until = results[1]
         price = results[2]
