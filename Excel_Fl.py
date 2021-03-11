@@ -24,20 +24,15 @@ def collet_data():
         s += 3
         cont.append(lis)
         
-    print(cont)
+  
 
-    #df1 = pd.DataFrame(cont,columns=['ValidUntil', 'Item_name', 'Price'])
+    df1 = pd.DataFrame(cont,columns=['ValidUntil', 'Item_name', 'Price'])
 
-    #with pd.ExcelWriter("ESheet_second.xlsx", engine='openpyxl', mode='w') as writer: 
-    #    df1.to_excel(writer, sheet_name='Sheet1')
+    with pd.ExcelWriter("ESheet_second.xlsx", engine='openpyxl', mode='w') as writer: 
+        df1.to_excel(writer, sheet_name='Sheet1')
 
-def search_in(input):
-    dt = pd.read_excel('ESheet_second.xlsx')
-    f = dt[dt['Item_name'].str.contains(input)][['Item_name', 'ValidUntil', 'Price']]
-    print(f)
-    lis = f.values.tolist() # convert dataobject to list
-   
-#collet_data()
+
+collet_data()
 #input = 'Waste'
 #search_in(input)
 # Data can be assigned directly to cells

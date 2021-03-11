@@ -9,13 +9,9 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 
 def search_in(input):
     print(input.lower())
-    dt = pd.read_excel('ESheet_second.xlsx')
-    f = dt[dt['Item_name'].str.contains(input, 
-                case=False, regex=True)][['Item_name', 'ValidUntil', 'Price']]
-    lis = f.values.tolist() # convert dataobject to list
-    return lis[0]
+    d_frame = pd.read_excel('ESheet_second.xlsx')
+    find = d_frame[d_frame['Item_name'].str.contains(input, 
+                   case=False, regex=True)][['Item_name', 'ValidUntil', 'Price']]
+    con_list = find.values.tolist() # convert dataobject to list
+    return con_list[0]
 
-
-#input = 'Waste'
-#search_in(input)
-#print(search_in(input))

@@ -19,42 +19,40 @@ class OffersSite():
     def find_elements(self, *args):
         get_soup = self.soup
         items = get_soup.find_all("span", {"class": args})
-        self.search_items(get_items=items)
+        self.search_items(item=items)
 
-    def search_items(self, get_items):
-        items_all=[]
-        for i in get_items:    
+    def search_items(self, item):
+        items_con=[]
+        for i in item:    
+            items_con.append(i.text)
+        self.get_items(items_con)
 
-            items_all.append(i.text)
-        self.get_items(items_all)
-
-    def get_items(self, item_all):
-        self.pass_over = item_all
+    def get_items(self, items_con):
+        self.pass_over = items_con
         item_name = []
         valid_until = [] 
         price = []
-        item_name = item_all[1::4] # All items names   
-        valid_until = item_all[0::4] # Price valid until
-        price = item_all[3::4] # Items price
+        item_name = items_con[1::4] # All items names   
+        valid_until = items_con[0::4] # Price valid until
+        price = items_con[3::4] # Items price
         k = 0
-        item_all_s = []
+        item_all = []
         for i in range(len(item_name)):
             a = valid_until[k]
             b = item_name[k]
             c = price[k]
             k += 1
-            item_all_s.append(a)
-            item_all_s.append(b)
-            item_all_s.append(c)
-        self.item_all_s = item_all_s
+            item_all.append(a)
+            item_all.append(b)
+            item_all.append(c)
+        self.pass_items = item_all
         
 
     def data_container(self):
         self.list_elements()
-        pass_over = self.item_all_s
+        pass_over = self.pass_items
         return pass_over
 
-
-#run = OffersSite()
-#run.list_elements()
-
+run = OffersSite()
+run.list_elements()
+print(run.data_container())

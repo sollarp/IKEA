@@ -25,6 +25,7 @@ SECRET_KEY = 'jd&-inme^e94a*cwsqcny*a2_(i@&*y=u)4s^_gg-07ig^a6!4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.mysite.com']
 ALLOWED_HOSTS = []
 
 
