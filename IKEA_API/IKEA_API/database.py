@@ -5,8 +5,6 @@ import openpyxl
 from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
-
-
 def search_in(input):
     print(input.lower())
     d_frame = pd.read_excel('ESheet_second.xlsx')

@@ -53,6 +53,3 @@ class OffersSite():
         pass_over = self.pass_items
         return pass_over
 
-run = OffersSite()
-run.list_elements()
-print(run.data_container())

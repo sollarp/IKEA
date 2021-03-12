@@ -7,44 +7,30 @@ from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
 from web_sitesec import OffersSite
 
-
-
-def collet_data():
-    offerssites = OffersSite()
-    data = offerssites.data_container()
-
+def collect_data():
+    offerssite = OffersSite()
+    data = offerssite.data_container()
     list = data
     cont = []  
-    s = 0
-    e = 3
-    g = len(list)
-    for var in range(int(g/4)):
-        lis = list[s:e]
-        e += 3
-        s += 3
+    start = 0
+    end = 3
+    lenght = len(list)
+    ##Loop takes 3 items out of the list and pass it container to append to excel columns.
+    for i in range(int(lenght/3)):
+        lis = list[start:end]
+        end += 3
+        start += 3
         cont.append(lis)
-        
-  
-
+    ## Create 3 dataframes      
     df1 = pd.DataFrame(cont,columns=['ValidUntil', 'Item_name', 'Price'])
-
+    ## Insert list from loop and create excel file or overwrite. 
     with pd.ExcelWriter("ESheet_second.xlsx", engine='openpyxl', mode='w') as writer: 
         df1.to_excel(writer, sheet_name='Sheet1')
 
 
-collet_data()
-#input = 'Waste'
-#search_in(input)
 # Data can be assigned directly to cells
 #ws['A5'] = 42
 
-
-#
-#
-#path = 'ESheet_second.xlsx'
-#dt = pd.read_excel('ESheet.xlsx')
-#dr = pd.DataFrame(data=dt)
-#
 #with pd.ExcelWriter(path, engine='openpyxl') as writer:
 #    writer.book = openpyxl.load_workbook(path)
 #    dr.to_excel(writer, sheet_name='Sheet1')
@@ -54,45 +40,15 @@ collet_data()
 #
 #with pd.ExcelWriter("ESheet_second.xlsx", engine='openpyxl', mode='r+') as writer: 
 #    df.to_excel(writer)
-#
-    
-
-#
-#dt = pd.read_excel('ESheet.xlsx')
-#xl = pd.ExcelFile('ESheet.xlsx')
-
-#dt_sec = pd.read_excel('ESheet_second.xlsx')
-
-
-
 
 #dr = pd.DataFrame(data=dt).T ## organize data
 #dr_new = pd.DataFrame(data=dt_sec).T
-
-#dr_sec = pd.DataFrame(data=dt_sec).T
-
-#dt.dropna(inplace = True)
 
 #sub ='Test'
 #start = 0
 #dt["Indexes"]= dt["Item_name"].str.find(sub, start) 
 #f = dt[dt['Desc'].str.contains("Waste")][['Desc']]
 #lis = f.values.tolist() # convert dataobject to list
-
-
-
-#print(lis[0][0]) # select one item from list
-
-#print(dt)
-#print(dt['Item_name'])
-#print(dr)
-#print(dt)
-#print(dt.head())
-#print(dt.shape)
-#print(dt.head(4))
-#print(dt.tail)
-
-
 
 ### This takes 2 excel sheets and merge together #############################
 #    excel1 = 'ESheet.xlsx'                                                  #
