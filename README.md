@@ -1,3 +1,4 @@
-IKEA Special offer website scrape and upload data in Excelsheet format.
+IKEA Special offer webpage scrape and upload data in Excelsheet format.
 
-Uplodaded to RAPID API ( using Django) and items can be requested in JSON format.
+Use RAPID API ( using Django).
+Searh for item name in URL link get request and receive respond in JSON from API.
