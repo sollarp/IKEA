@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 pip pandas
 pip install xlwt openpyxl xlsxwriter xlrd
 pip install django
 pip install requestrequests_html
+=======
+install:
+pip install pandas
+pip install xlwt openpyxl xlsxwriter xlrd
+pip install requests_html
+>>>>>>> 0d183f26db44fa0ac1c56f62d3e0662431304b35
