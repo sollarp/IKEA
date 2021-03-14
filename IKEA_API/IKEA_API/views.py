@@ -11,8 +11,6 @@ def firstFunction(request):
         item_name = results[0]
         valid_until = results[1]
         price = results[2]
-
-
         return Response({'message': "we received your request", 
                         'item name': item_name, 
                         'price': price, 

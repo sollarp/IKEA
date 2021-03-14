@@ -1,21 +1,20 @@
 import pandas as pd
 from pandas import ExcelWriter
 from pandas import ExcelFile
-from web_sitesec import OffersSite
 import openpyxl
 from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
-from web_sitesec import OffersSite
+from web_parsing import OffersSite
 
 def collect_data():
     offerssite = OffersSite()
-    data = offerssite.data_container()
+    data = offerssite.data_container() ## return data from web_parsing with targeted elements
     list = data
     cont = []  
     start = 0
     end = 3
     lenght = len(list)
-    ##Loop takes 3 items out of the list and pass it container to append to excel columns.
+    ##Loop takes 3 items out of the list and pass it into a container and append to excel columns.
     for i in range(int(lenght/3)):
         lis = list[start:end]
         end += 3
@@ -23,11 +22,11 @@ def collect_data():
         cont.append(lis)
     ## Create 3 dataframes      
     df1 = pd.DataFrame(cont,columns=['ValidUntil', 'Item_name', 'Price'])
-    ## Insert list from loop and create excel file or overwrite. 
+    ## Insert items from loop and create excel file or overwrite. 
     with pd.ExcelWriter("ESheet_second.xlsx", engine='openpyxl', mode='w') as writer: 
         df1.to_excel(writer, sheet_name='Sheet1')
 
-
+collect_data()
 # Data can be assigned directly to cells
 #ws['A5'] = 42
 

@@ -26,11 +26,11 @@ class OffersSite():
         v = get_req.html.find(v)
         self.search_items(n, p, v)
 
+    ## Passing elements in 3 containers using loop.
     def search_items(self, n, p, v):
         item_n = []
         item_p = []
         item_v = []
-        ## Passing elements in 3 containers using loop.
         for i in range(len(n)):
             name = n[i].text
             price =p[i].text
