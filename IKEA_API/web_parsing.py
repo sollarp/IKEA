@@ -1,6 +1,7 @@
 from requests_html import HTMLSession
 
 
+
 class OffersSite():
 
     def open_url(self):
